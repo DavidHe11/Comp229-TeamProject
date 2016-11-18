@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Comp229_TeamProject
+namespace Comp229_TeamProject.Pages
 {
-    public partial class About : Page
+    public partial class HomePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
