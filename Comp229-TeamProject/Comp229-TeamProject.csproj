@@ -182,7 +182,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon.png" />
     <Content Include="Pages\GameList.aspx" />
+    <Content Include="Pages\GamePage.aspx" />
     <Content Include="Pages\HomePage.aspx" />
     <Content Include="Pages\Profile.aspx" />
     <Content Include="Pages\Registration.aspx" />
@@ -372,6 +374,13 @@
     <Compile Include="Pages\GameList.aspx.designer.cs">
       <DependentUpon>GameList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GamePage.aspx.cs">
+      <DependentUpon>GamePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GamePage.aspx.designer.cs">
+      <DependentUpon>GamePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -439,6 +448,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
