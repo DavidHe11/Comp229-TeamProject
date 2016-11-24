@@ -23,6 +23,9 @@ namespace Comp229_TeamProject.Pages
 
         protected void srchbtn_Click(object sender, EventArgs e)
         {
+            gamelistsql.SelectCommand = "SELECT [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [GameName] WHERE GameName LIKE @search";
+
+            /*
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
             SqlCommand searchgame = new SqlCommand("SELECT GameName, NumberofUsers, DatePublished FROM Games WHERE GameName LIKE @search)", conn);
             try
@@ -50,7 +53,7 @@ namespace Comp229_TeamProject.Pages
                 conn.Close();
                 Response.Redirect(Request.RawUrl);
             }
-           
+        */
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
