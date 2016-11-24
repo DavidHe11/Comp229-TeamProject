@@ -1,12 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GamePage.aspx.cs" Inherits="Comp229_TeamProject.Pages.GamePage" %>
+﻿<%@ Page Title="GamePage" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="GamePage.aspx.cs" Inherits="Comp229_TeamProject.Pages.GamePage" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-  <h1>TEST PAGE</h1>
-</body>
-</html>
+    </asp:Content>

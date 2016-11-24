@@ -1,21 +1,21 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Comp229_TeamProject.SiteMaster" %>
 
 <!DOCTYPE html>
-
+<!--Master Page modified by David He-->
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
-
+    <title><%: Page.Title %> - Gardyloo!</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> <%--Famicon needs to be uploaded into assets --%>
 
 </head>
-<body>
+<body class="masterBody">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,32 +38,33 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top masterNav">
+            <div class="container" >
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    
+                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx"><%--<img src=""/>--%>Gardyloo!</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Pages/HomePage.aspx">Home</a></li>
+                        <li><a runat="server" href="~/Pages/GameList.aspx">Games</a></li>
+                        <li><a runat="server" href="~/Pages/UserList.aspx">Users</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Pages/Registration.aspx">Register/Login</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <%--Robert, could you make sure this works?--%>
+                                <li> <a runat="server" href="~/Pages/Profile.aspx"> My Profile</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
@@ -73,12 +74,15 @@
                 </div>
             </div>
         </div>
+        <br />
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+        </div>
+        <div class="container body-content">
+            <hr class="hr" />
+            <footer class="masterFooter">
+                <p >&copy; <%: DateTime.Now.Year %> - Gardyloo! - COMP229 - Team Project - David He/Robert Riemens</p>
             </footer>
         </div>
     </form>
