@@ -6,16 +6,16 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
     <title><%: Page.Title %> - Gardyloo!</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> <%--Famicon needs to be uploaded into assets --%>
 
 </head>
-<body>
+<body class="masterBody">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,15 +38,16 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top masterNav">
+            <div class="container" >
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx">Gardyloo!</a>
+                    
+                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx"><%--<img src=""/>--%>Gardyloo!</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -57,13 +58,11 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Pages/Registration.aspx">Register/Login</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li>Hello, <%: Context.User.Identity.GetUserName()  %> !</li>
                                 <%--Robert, could you make sure this works?--%>
                                 <li> <a runat="server" href="~/Pages/Profile.aspx"> My Profile</a></li>
                                 <li>
@@ -78,9 +77,10 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+            <br />
+            <br />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Gardyloo! - COMP229 - Team Project - David He/Robert Riemens</p>
+                <p class="masterFooter">&copy; <%: DateTime.Now.Year %> - Gardyloo! - COMP229 - Team Project - David He/Robert Riemens</p>
             </footer>
         </div>
     </form>

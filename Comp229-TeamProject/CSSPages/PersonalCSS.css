@@ -1,0 +1,40 @@
+﻿/*Personal CSS page:
+Robert, feel free change the name if you do remember to change the name of the href in the following, 
+just in case you don't remember paste this:
+<link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
+This IS linked in the master page.
+ I will try to explain each CSS change and class. Feel free to make your own, otherwise you might have to use one of the ones provided or give me an idea of 
+ what you want to create in a comment on this page. ~ David
+*/
+
+.masterBody 
+/*All changes to the master page body will be in here.*/
+{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:#F99FA8;
+}
+.masterNav 
+/*Changes to nav are here*/
+{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:#AF2532;
+}
+.nav.navbar-nav li a 
+/*Overwrite bootstrap at 4522*/
+{
+   color: #ED707B;
+ }
+.navbar-inverse .navbar-brand 
+/*Overwrite bootstrap at 4391*/
+{
+    color: #ED707B;
+}
+.masterFooter{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:#498A97;
+    text-align:center;
+    border-color:black;
+    border-style:solid;
+    border-width:thin;
+    color:#0A4C58;
+}

@@ -182,7 +182,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSSPages\PersonalCCS.css" />
+    <Content Include="CSSPages\PersonalCSS.css" />
     <Content Include="Icon.png" />
     <Content Include="Pages\GameList.aspx" />
     <Content Include="Pages\GamePage.aspx" />
