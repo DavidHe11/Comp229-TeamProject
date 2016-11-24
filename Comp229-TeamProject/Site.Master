@@ -52,7 +52,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Pages/HomePage.aspx">Home</a></li>
-                        <li><a runat="server" href="~/Pages/GamePage.aspx">Games</a></li>
+                        <li><a runat="server" href="~/Pages/GameList.aspx">Games</a></li>
                         <li><a runat="server" href="~/Pages/UserList.aspx">Users</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -74,13 +74,15 @@
                 </div>
             </div>
         </div>
+        <br />
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <br />
-            <br />
-            <footer>
-                <p class="masterFooter">&copy; <%: DateTime.Now.Year %> - Gardyloo! - COMP229 - Team Project - David He/Robert Riemens</p>
+        </div>
+        <div class="container body-content">
+            <hr class="hr" />
+            <footer class="masterFooter">
+                <p >&copy; <%: DateTime.Now.Year %> - Gardyloo! - COMP229 - Team Project - David He/Robert Riemens</p>
             </footer>
         </div>
     </form>

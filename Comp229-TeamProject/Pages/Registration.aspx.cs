@@ -13,5 +13,14 @@ namespace Comp229_TeamProject.Pages
         {
 
         }
+
+        protected void Register_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void Login_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

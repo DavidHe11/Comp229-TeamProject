@@ -38,3 +38,26 @@ This IS linked in the master page.
     border-width:thin;
     color:#0A4C58;
 }
+
+.col-md-6{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #FFD0A3;
+    border-style:solid;
+    border-width:3px;
+    border-color:#F5B373;
+    border-radius:10px;
+    height:300px;
+    color: #B56C26;
+}
+.tableFillout{
+   width:100%;
+   border-spacing:10px 50px;
+   height:140px;
+}
+.btn{
+    color:#FFD0A3;
+    background-color:#B56C26;
+}
+.hr{
+    border-color:#8A0C18;
+}
