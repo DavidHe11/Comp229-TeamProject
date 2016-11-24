@@ -14,23 +14,23 @@
             <h4>Top 10 Games</h4>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="top10games" Width="400px">
                     <Columns>
-                        <asp:HyperLinkField DataNavigateUrlFields="GameName" DataNavigateUrlFormatString="GamePage.aspx?GameName={0}" DataTextField="GameName" HeaderText="GameName" NavigateUrl="~/Pages/GamePage.aspx" />
+                        <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
                         <asp:BoundField DataField="NumberOfUsers" HeaderText="NumberOfUsers" SortExpression="NumberOfUsers" />
-                        <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" DataFormatString="{0:d}" />
+                        <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" />
                     </Columns>
                 </asp:GridView>   
-                <asp:SqlDataSource ID="top10games" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [GameName]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="top10games" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT TOP 10 [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [GameName] "></asp:SqlDataSource>
         </div>
          <div class="col-md-4">
             <h4>Recently Added Games</h4>
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="RecentGames" Width="400px">
                     <Columns>
-                        <asp:HyperLinkField DataNavigateUrlFields="GameName" DataNavigateUrlFormatString="GamePage.aspx?GameName={0}" DataTextField="GameName" HeaderText="Game Name" NavigateUrl="~/Pages/GamePage.aspx" />
+                        <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
                         <asp:BoundField DataField="NumberOfUsers" HeaderText="NumberOfUsers" SortExpression="NumberOfUsers" />
-                        <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" DataFormatString="{0:d}" />
+                        <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="RecentGames" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString %>" SelectCommand="SELECT [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [DatePublished]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="RecentGames" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString %>" SelectCommand="SELECT TOP 10 [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [DatePublished]"></asp:SqlDataSource>
         </div>
             </div>
        
