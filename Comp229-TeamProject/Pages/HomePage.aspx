@@ -19,7 +19,7 @@
             <h4>Top 10 Games</h4>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="top10games" >
                     <Columns>
-                        <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
+                        <asp:HyperLinkField DataNavigateUrlFields="GameName" DataNavigateUrlFormatString="GamePage.aspx?GameName={0}" DataTextField="GameName" HeaderText="GameName" NavigateUrl="~/Pages/GamePage.aspx" />
                         <asp:BoundField DataField="NumberOfUsers" HeaderText="NumberOfUsers" SortExpression="NumberOfUsers" />
                         <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" DataFormatString="{0:d}" />
                     </Columns>
@@ -30,7 +30,7 @@
             <h4>Recently Added Games</h4>
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="RecentGames" >
                     <Columns>
-                        <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
+                        <asp:HyperLinkField DataNavigateUrlFields="GameName" DataNavigateUrlFormatString="GamePage.aspx?GameName={0}" DataTextField="GameName" HeaderText="GameName" />
                         <asp:BoundField DataField="NumberOfUsers" HeaderText="NumberOfUsers" SortExpression="NumberOfUsers" />
                         <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" DataFormatString="{0:d}" />
                     </Columns>
