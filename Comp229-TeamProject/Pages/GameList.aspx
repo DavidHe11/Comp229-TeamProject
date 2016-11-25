@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%--editted by rob --%>
         <h1>Game List</h1>
+    <div class ="divBody small">
         <p>
             <asp:TextBox ID="searchbox" runat="server" Width="250px"></asp:TextBox>
             <asp:Button ID="srchbtn" runat="server" OnClick="srchbtn_Click" Text="Search" />
@@ -19,5 +20,5 @@
 
                 </asp:SqlDataSource>
         </p>
-  
+  </div>
     </asp:Content>

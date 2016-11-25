@@ -82,3 +82,8 @@ This IS linked in the master page.
 {
     border-color:#8A0C18;
 }
+.small
+/*try to make it lookgood on small windows*/
+{
+    width: 1000px;
+}

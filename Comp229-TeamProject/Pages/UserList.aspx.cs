@@ -13,5 +13,10 @@ namespace Comp229_TeamProject.Pages
         {
 
         }
+
+        protected void srchbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
