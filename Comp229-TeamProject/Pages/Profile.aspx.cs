@@ -11,6 +11,15 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string username = Request.QueryString["UserName"];
+            profileName.Text = username;
+        }
+        private string getemail(string whoop)
+        {
+            string email = null;
+
+
+            return email;
 
         }
     }

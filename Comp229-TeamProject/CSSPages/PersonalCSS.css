@@ -110,7 +110,7 @@ This IS linked in the master page.
 }
 /*The following three cut the bottom of the profile in approx. 1/2*/
 .halfSize{
-    width:49%;
+    width:48%;
 }
 .right{
     float:right;

@@ -11,7 +11,8 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string gamename = Request.QueryString["GameName"];
+            gameNameLbl.Text = gamename;
         }
     }
 }
