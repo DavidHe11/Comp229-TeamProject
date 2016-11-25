@@ -12,7 +12,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> <%--Famicon needs to be uploaded into assets --%>
+    <link href="~/Assets/Icon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body class="masterBody">
@@ -43,11 +43,11 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                       <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span><a href="Assets/Icon.ico">Assets/Icon.ico</a>
                       <span class="icon-bar"></span>
                     </button>
                     
-                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx"><%--<img src=""/>--%>Gardyloo!</a>
+                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx"><img src="Assets/Icon.ico"/>Gardyloo!</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

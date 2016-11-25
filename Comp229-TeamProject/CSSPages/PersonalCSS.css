@@ -29,7 +29,9 @@ This IS linked in the master page.
 {
     color: #ED707B;
 }
-.masterFooter{
+.masterFooter
+/*Footer CSS*/
+{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color:#498A97;
     text-align:center;
@@ -39,7 +41,9 @@ This IS linked in the master page.
     color:#0A4C58;
 }
 
-.col-md-6{
+.divBody
+/*Default CSS*/
+{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #FFD0A3;
     border-style:solid;
@@ -48,16 +52,33 @@ This IS linked in the master page.
     border-radius:10px;
     height:300px;
     color: #B56C26;
+    padding:8px;
 }
-.tableFillout{
+.gameImageFrame
+/*GamePage Image Frame*/
+{
+
+}
+
+.tableFillout
+/*Table from Registration/Login Page*/
+{
    width:100%;
    border-spacing:10px 50px;
    height:140px;
 }
-.btn{
+.btn
+/*Button*/
+{
     color:#FFD0A3;
     background-color:#B56C26;
 }
-.hr{
+.float
+/*Moves button to the top right*/{
+    float:right;
+}
+.hr
+/*changes color of HR*/
+{
     border-color:#8A0C18;
 }

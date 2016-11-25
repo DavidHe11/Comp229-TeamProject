@@ -3,7 +3,7 @@
 <%--Replacement for "SignIn" and "Login" page. Just put both next to each other.--%>
 <%--Edited by David He --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="col-md-6" id="registerDiv">
+    <div class="col-md-6 divBody" id="registerDiv">
         <h2>Register for an account</h2>
         <table class="tableFillout">
         <tr><td>Username:</td><td> <asp:TextBox runat="server" ID="regUsernameTB"></asp:TextBox></td></tr>
@@ -15,7 +15,7 @@
         <asp:Button CssClass="btn" runat="server" Text="Create Account"/><%--Onclick="Register_Click"--%>
         
     </div>
-    <div class="col-md-6" id="loginDiv">
+    <div class="col-md-6 divBody" id="loginDiv">
         <h2>Login</h2>
         <table class="tableFillout">
         <tr><td>Username:</td><td> <asp:TextBox runat="server" ID="loginUsernameTB"></asp:TextBox></td></tr>

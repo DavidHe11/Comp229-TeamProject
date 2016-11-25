@@ -11,5 +11,32 @@ namespace Comp229_TeamProject.Pages {
     
     
     public partial class GamePage {
+        
+        /// <summary>
+        /// addGameToCollectionBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addGameToCollectionBtn;
+        
+        /// <summary>
+        /// gameName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gameName;
+        
+        /// <summary>
+        /// numberOfPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label numberOfPlayers;
     }
 }
