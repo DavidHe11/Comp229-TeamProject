@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Icon.ico" />
+    <Content Include="CSSPages\personalCSS.css" />
     <Content Include="Pages\GameList.aspx" />
     <Content Include="Pages\GamePage.aspx" />
     <Content Include="Pages\HomePage.aspx" />
@@ -442,7 +443,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="CSSPages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
