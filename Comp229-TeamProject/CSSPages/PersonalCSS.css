@@ -108,3 +108,13 @@ This IS linked in the master page.
     height: 500px;
     padding: 20px;
 }
+/*The following three cut the bottom of the profile in approx. 1/2*/
+.halfSize{
+    width:49%;
+}
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}

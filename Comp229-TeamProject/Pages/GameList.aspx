@@ -12,7 +12,7 @@
                         <asp:BoundField DataField="NumberOfUsers" HeaderText="NumberOfUsers" SortExpression="NumberOfUsers" />
                         <asp:BoundField DataField="DatePublished" HeaderText="DatePublished" SortExpression="DatePublished" />
                     </Columns>
-                </asp:GridView>   
+                </asp:GridView>
                 <asp:SqlDataSource ID="gamelistsql" runat="server"
                      ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" 
                     SelectCommand="SELECT [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [GameName]">

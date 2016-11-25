@@ -43,7 +43,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                       <span class="icon-bar"></span>
-                      <span class="icon-bar"></span><a href="Assets/Icon.ico">Assets/Icon.ico</a>
+                      <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
                     
@@ -63,10 +63,9 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <%--Robert, could you make sure this works?--%>
                                 <li> <a runat="server" href="~/Pages/Profile.aspx"> My Profile</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Pages/HomePage.aspx" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>
@@ -80,6 +79,7 @@
             </asp:ContentPlaceHolder>
         </div>
         <div class="container body-content">
+            <%--For some reason the contentplaceholder kept eating the footer, dispite closing and opening tags not overlapping.--%>
             <hr class="hr" />
             <footer class="masterFooter">
                 <p >&copy; <%: DateTime.Now.Year %> - Gardyloo! - COMP229 - Team Project - David He/Robert Riemens</p>

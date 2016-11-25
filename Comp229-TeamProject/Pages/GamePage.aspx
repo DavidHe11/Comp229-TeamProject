@@ -4,7 +4,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="divBody heightGamePages">
     <div class="gameImageFrame">
-        <asp:Image runat="server"  />
+        <asp:Image runat="server" ID="gameImage" />
     </div>
     <asp:Button CssClass="btn float" runat="server" ID="addGameToCollectionBtn" Text="+" />
     <div class="gameInformation">
