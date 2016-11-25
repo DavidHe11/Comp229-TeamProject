@@ -2,12 +2,25 @@
 <%--Modified by David He--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="divBody">
+    <div class="divBody heightGamePages">
     <div class="gameImageFrame">
-        
+        <asp:Image runat="server"  />
     </div>
     <asp:Button CssClass="btn float" runat="server" ID="addGameToCollectionBtn" Text="+" />
-    <asp:Label runat="server" ID="gameName"></asp:Label>
-    <asp:Label runat="server" ID="numberOfPlayers"></asp:Label>
+    <div class="gameInformation">
+    <asp:Label runat="server" ID="gameNameLbl"></asp:Label><br /><br />
+
+    Description:<asp:Label runat="server" ID="descLbl"></asp:Label>
+        <br />
+        <br />
+    Number Of Players Playing: <asp:Label runat="server" ID="numberOfPlayersLbl"></asp:Label>
+        <br />
+        <br />
+    Number Of Players who want the game: <asp:Label runat="server" ID="numberOfPlayersWantingLbl"></asp:Label>
+        <br />
+        <br />
+    Rating: 
+        <asp:Label runat="server" ID="ratingLbl"></asp:Label>
+        </div>
     </div>
     </asp:Content>

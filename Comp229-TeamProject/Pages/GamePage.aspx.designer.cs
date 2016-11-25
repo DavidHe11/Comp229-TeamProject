@@ -22,21 +22,48 @@ namespace Comp229_TeamProject.Pages {
         protected global::System.Web.UI.WebControls.Button addGameToCollectionBtn;
         
         /// <summary>
-        /// gameName control.
+        /// gameNameLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gameName;
+        protected global::System.Web.UI.WebControls.Label gameNameLbl;
         
         /// <summary>
-        /// numberOfPlayers control.
+        /// descLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label numberOfPlayers;
+        protected global::System.Web.UI.WebControls.Label descLbl;
+        
+        /// <summary>
+        /// numberOfPlayersLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label numberOfPlayersLbl;
+        
+        /// <summary>
+        /// numberOfPlayersWantingLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label numberOfPlayersWantingLbl;
+        
+        /// <summary>
+        /// ratingLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ratingLbl;
     }
 }

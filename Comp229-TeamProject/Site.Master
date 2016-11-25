@@ -47,7 +47,7 @@
                       <span class="icon-bar"></span>
                     </button>
                     
-                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx"><img src="Assets/Icon.ico"/>Gardyloo!</a>
+                    <a class="navbar-brand" runat="server" href="~/Pages/HomePage.aspx">Gardyloo!</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
