@@ -55,7 +55,7 @@ CREATE TABLE GameProfile.[dbo].[Games](
 GO
 SET ANSI_PADDING OFF
 GO
-/* Object: Table Comp229Assign03.[dbo].[Courses] */
+
 
 
 
@@ -67,14 +67,14 @@ ADD CONSTRAINT FK_GameLine_GameID FOREIGN KEY (GameID) REFERENCES Games(GameID)
 ALTER TABLE GameProfile.[dbo].GameLine
 ADD CONSTRAINT FK_GameLine_MemberID FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
 
---Departments
+--Games
 INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished)
 VALUES ('Persona 3', 'This is a persona 3 description', '1994-10-10')
 
---Students
+--Members
 INSERT INTO GameProfile.[dbo].Members(Lname,FName,DateCreated,Username,Email, Password)
 VALUES ('Robert','Siemens',GETDATE(),'Ricter','fake@gmail.com', '123');
 
---Enrollments
+--Gameline
 INSERT INTO GameProfile.[dbo].GameLine(GameID, MemberID)
-VALUES (10, 100 )
+VALUES (10, 104 )
