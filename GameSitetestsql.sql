@@ -1,4 +1,3 @@
-/* Object: Table GameProfile.[dbo].[Members] */
 GO
 SET ANSI_NULLS ON
 GO
@@ -10,6 +9,8 @@ CREATE TABLE GameProfile.[dbo].[Members](
 	[FName] [varchar](50) NOT NULL,
 	[DateCreated] [date] NOT NULL,
 	[Username] [varchar](50) NOT NULL,
+	[Email] [nvarchar](15) NOT NULL,
+	[Password] [nvarchar](20) NOT NULL,
  CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED 
 (
 	[MemberID] ASC
@@ -71,10 +72,9 @@ INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished)
 VALUES ('Persona 3', 'This is a persona 3 description', '1994-10-10')
 
 --Students
-INSERT INTO GameProfile.[dbo].Members(FName, LName, DateCreated, Username)
-VALUES ('Robert', 'Riemens', '2016-11-22', 'Kunver')
+INSERT INTO GameProfile.[dbo].Members(Lname,FName,DateCreated,Username,Email, Password)
+VALUES ('Robert','Siemens',GETDATE(),'Ricter','fake@gmail.com', '123');
 
 --Enrollments
 INSERT INTO GameProfile.[dbo].GameLine(GameID, MemberID)
 VALUES (10, 100 )
-
