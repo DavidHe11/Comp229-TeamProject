@@ -1,3 +1,5 @@
+
+CREATE DATABASE GameProfile;
 GO
 SET ANSI_NULLS ON
 GO
@@ -77,4 +79,4 @@ VALUES ('Robert','Siemens',GETDATE(),'Ricter','fake@gmail.com', '123');
 
 --Gameline
 INSERT INTO GameProfile.[dbo].GameLine(GameID, MemberID)
-VALUES (10, 104 )
+VALUES (10, 100 )
