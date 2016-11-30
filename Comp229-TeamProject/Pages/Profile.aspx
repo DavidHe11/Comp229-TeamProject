@@ -29,10 +29,7 @@
 <br />
                 </ItemTemplate>
             </asp:DataList>
-            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT [GameID] FROM [GameLine] WHERE ([MemberID] = @MemberID)">
-                <SelectParameters>
-                    <asp:FormParameter DefaultValue="0" FormField="memberid" Name="MemberID" Type="Int32" />
-                </SelectParameters>
+            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT Games.GameName FROM Games INNER JOIN GameLine ON Games.GameID = GameLine.GameID INNER JOIN Members ON GameLine.MemberID = Members.MemberID">
             </asp:SqlDataSource>
         </div>
 
