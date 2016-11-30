@@ -33,11 +33,7 @@ namespace Comp229_TeamProject.Pages
                 conn.Open();
                 descLbl.Text = Convert.ToString(getdesc.ExecuteScalar());
                 numberOfPlayersLbl.Text = Convert.ToString(getplayers.ExecuteScalar());
-                ratingLbl.Text= Convert.ToString(getrating.ExecuteScalar());
-                if(string.IsNullOrEmpty(ratingLbl.Text))
-                {
-                    ratingLbl.Text = ("0");
-                }
+  
             }
 
             finally
@@ -51,9 +47,12 @@ namespace Comp229_TeamProject.Pages
         protected void addGameToCollectionBtn_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-            string username = Request.QueryString["Game"];
+            string placeholder = null;
             SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,MemberID) VALUES(@gamename, @User); ", conn);
             SqlCommand removegame = new SqlCommand("DELETE FROM dbo.GameLine WHERE MemberID = @user AND GameID = @gamename; ", conn);
+            SqlCommand gameadduser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers + 1 WHERE GameID = @GameID ", conn);
+            SqlCommand gameremoveuser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers - 1 WHERE GameID = @GameID ", conn);
+
             //  if (User is logged in)
             //      { 
             //  if (User does not have it)
@@ -62,11 +61,12 @@ namespace Comp229_TeamProject.Pages
             try
             {
 
-                addgame.Parameters.AddWithValue("@gamename", username);
-                addgame.Parameters.AddWithValue("@user", username);
-                
+                addgame.Parameters.AddWithValue("@gamename", placeholder);
+                addgame.Parameters.AddWithValue("@user", placeholder);
+                gameadduser.Parameters.AddWithValue("GameID", placeholder);
                 conn.Open();
                 addgame.ExecuteNonQuery();
+                gameadduser.ExecuteNonQuery();
             }
 
             finally
@@ -81,10 +81,11 @@ namespace Comp229_TeamProject.Pages
                       try
             {
 
-                removegame.Parameters.AddWithValue("@gamename", username);
-                removegame.Parameters.AddWithValue("@user", username);
-                
+                removegame.Parameters.AddWithValue("@gamename", placeholder);
+                removegame.Parameters.AddWithValue("@user", placeholder);
+                gameremoveuser.Parameters.AddWithValue("GameID", placeholder);
                 conn.Open();
+                gameremoveuser.ExecuteNonQuery();
                 removegame.ExecuteNonQuery();
             }
 
