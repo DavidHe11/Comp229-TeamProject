@@ -14,22 +14,20 @@
         </div>
         <div class="divBody halfSize right">
             Games owned:
-        <%-- Database is missing platforms and players playing
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="gamelistsql" AllowPaging="True">
-                    <Columns>
-                        <asp:BoundField DataField="GameName"/>
-                    </Columns>
-                </asp:GridView>
-            --%>
+
             <asp:DataList ID="DataList1" runat="server" DataSourceID="gamesowned">
                 <ItemTemplate>
-                    GameID:
-                    <asp:Label ID="GameIDLabel" runat="server" Text='<%# Eval("GameID") %>' />
+       
+                    <asp:Label ID="GameNameLabel" runat="server" Text='<%# Eval("GameName") %>' />
                     <br />
 <br />
                 </ItemTemplate>
             </asp:DataList>
-            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT Games.GameName FROM Games INNER JOIN GameLine ON Games.GameID = GameLine.GameID INNER JOIN Members ON GameLine.MemberID = Members.MemberID">
+            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT Games.GameName FROM Games INNER JOIN GameLine ON Games.GameID = GameLine.GameID INNER JOIN Members ON GameLine.MemberID = Members.MemberID
+WHERE (GameLine.MemberID = @memberid)">
+                <SelectParameters>
+                    <asp:FormParameter FormField="memberid" Name="memberid" DefaultValue="10" />
+                </SelectParameters>
             </asp:SqlDataSource>
         </div>
 
