@@ -6,7 +6,7 @@
     <div class="gameImageFrame">
         <asp:Image runat="server" ID="gameImage" />
     </div>
-    <asp:Button CssClass="btn float" runat="server" ID="addGameToCollectionBtn" Text="+" />
+    <asp:Button CssClass="btn float" runat="server" ID="addGameToCollectionBtn" Text="+" OnClick="addGameToCollectionBtn_Click" />
     <div class="gameInformation">
     <asp:Label runat="server" ID="gameNameLbl"></asp:Label><br /><br />
 

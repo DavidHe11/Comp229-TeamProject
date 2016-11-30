@@ -46,5 +46,59 @@ namespace Comp229_TeamProject.Pages
                 conn.Close();
             }
         }
+
+        //Add game to a users list
+        protected void addGameToCollectionBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+            string username = Request.QueryString["Game"];
+            SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,MemberID) VALUES(@gamename, @User); ", conn);
+            SqlCommand removegame = new SqlCommand("DELETE FROM dbo.GameLine WHERE MemberID = @user AND GameID = @gamename; ", conn);
+            //  if (User is logged in)
+            //      { 
+            //  if (User does not have it)
+            //      { 
+
+            try
+            {
+
+                addgame.Parameters.AddWithValue("@gamename", username);
+                addgame.Parameters.AddWithValue("@user", username);
+                
+                conn.Open();
+                addgame.ExecuteNonQuery();
+            }
+
+            finally
+            {
+
+                conn.Close();
+
+
+            }
+            /*  if (User does not have it)
+                  { 
+                      try
+            {
+
+                removegame.Parameters.AddWithValue("@gamename", username);
+                removegame.Parameters.AddWithValue("@user", username);
+                
+                conn.Open();
+                removegame.ExecuteNonQuery();
+            }
+
+            finally
+            {
+
+                conn.Close();
+
+
+            }
+
+             }
+             }
+             */
+        }
     }
 }
