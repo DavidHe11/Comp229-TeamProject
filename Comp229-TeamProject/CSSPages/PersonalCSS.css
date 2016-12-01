@@ -96,3 +96,25 @@ This IS linked in the master page.
 {
     border-color:#8A0C18;
 }
+.heightRegistration 
+/*Div height for Registration*/
+{
+    height: 300px;
+
+}
+.heightGamePages
+/*Div height for GamePages*/
+{
+    height: 500px;
+    padding: 20px;
+}
+/*The following three cut the bottom of the profile in approx. 1/2*/
+.halfSize{
+    width:48%;
+}
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}

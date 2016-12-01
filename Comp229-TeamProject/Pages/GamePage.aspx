@@ -16,11 +16,8 @@
     Number Of Players Playing: <asp:Label runat="server" ID="numberOfPlayersLbl"></asp:Label>
         <br />
         <br />
-    Number Of Players who want the game: <asp:Label runat="server" ID="numberOfPlayersWantingLbl"></asp:Label>
-        <br />
-        <br />
     Rating: 
         <asp:Label runat="server" ID="ratingLbl"></asp:Label>
-        </div>
+        /5</div>
     </div>
     </asp:Content>

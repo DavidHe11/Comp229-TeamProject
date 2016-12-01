@@ -21,6 +21,19 @@
                     </Columns>
                 </asp:GridView>
             --%>
+            <asp:DataList ID="DataList1" runat="server" DataSourceID="gamesowned">
+                <ItemTemplate>
+                    GameID:
+                    <asp:Label ID="GameIDLabel" runat="server" Text='<%# Eval("GameID") %>' />
+                    <br />
+<br />
+                </ItemTemplate>
+            </asp:DataList>
+            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT [GameID] FROM [GameLine] WHERE ([MemberID] = @MemberID)">
+                <SelectParameters>
+                    <asp:FormParameter DefaultValue="0" FormField="memberid" Name="MemberID" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
 
     </div>
