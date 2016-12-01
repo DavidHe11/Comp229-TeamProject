@@ -12,6 +12,7 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*Loads the page with the specific game information*/
             string gamename = Request.QueryString["GameName"];
             gameNameLbl.Text = gamename;
 

@@ -11,7 +11,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/PersonalCSS.css">
     <link href="Assets/Icon.ico" rel="shortcut icon" type="image/x-icon" />
     
 </head>

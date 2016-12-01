@@ -12,8 +12,9 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*Loads the page with the specific member information*/
             string username = Request.QueryString["UserName"];
-            int memberid = 104;
+            int memberid = 0;
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
             
             SqlCommand getemail = new SqlCommand("SELECT Email FROM dbo.Members WHERE UserName= @user", conn);

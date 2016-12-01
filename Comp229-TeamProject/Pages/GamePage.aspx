@@ -18,6 +18,6 @@
         <br />
     Rating: 
         <asp:Label runat="server" ID="ratingLbl"></asp:Label>
-        /5</div>
+        </div>
     </div>
     </asp:Content>
