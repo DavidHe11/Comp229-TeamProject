@@ -56,5 +56,47 @@ namespace Comp229_TeamProject.Pages
             }
         */
         }
+
+        protected void addbtn_Click(object sender, EventArgs e)
+        {
+            //add a game if user is an admin
+            String Name = null;
+            String Description = null;
+            String Date = null;
+            SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+            SqlCommand addgame = new SqlCommand("INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished) VALUES(@name, @desc, @date)", conn);
+            if (String.IsNullOrEmpty(namebx.Text))
+            {
+               
+            }
+            else
+            {
+                if(String.IsNullOrEmpty(descbx.Text))
+                {
+                    Name = namebx.Text;
+                    Description = descbx.Text;
+                    Date = Convert.ToString(Calendar1.SelectedDate);
+                    try
+                    {
+
+                        addgame.Parameters.AddWithValue("@name", Name);
+                        addgame.Parameters.AddWithValue("@desc", Description);
+                        addgame.Parameters.AddWithValue("@date", Date);
+                        conn.Open();
+                        addgame.ExecuteNonQuery();
+
+                    }
+
+                    finally
+                    {
+
+                        conn.Close();
+
+
+                    }
+                }
+            }
+
+        }
     }
 }
