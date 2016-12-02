@@ -13,19 +13,12 @@
             Email:<asp:Label runat="server" ID="EmailID"></asp:Label>
         </div>
         <div class="divBody halfSize right">
-            Games owned:
-
-            <asp:DataList ID="DataList1" runat="server" DataSourceID="gamesowned">
-                <ItemTemplate>
-       
-                    GameID:
-       
-                    <asp:Label ID="GameIDLabel" runat="server" Text='<%# Eval("GameID") %>' />
-                    <br />
-<br />
-                </ItemTemplate>
-            </asp:DataList>
-            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString %>" SelectCommand="SELECT [GameID] FROM [GameLine] WHERE ([MemberID] = @MemberID)">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="gamesowned" Width="400px" AllowPaging="True">
+                    <Columns>
+                        <asp:HyperLinkField DataNavigateUrlFields="GameName" DataNavigateUrlFormatString="GamePage.aspx?GameName={0}" DataTextField="GameName" HeaderText="Games Owned:" NavigateUrl="~/Pages/GamePage.aspx" />
+                    </Columns>
+                </asp:GridView>
+                &nbsp;<asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString %>" SelectCommand="SELECT [GameName] FROM [GameLine] WHERE ([MemberID] = @MemberID)">
                 <SelectParameters>
                     <asp:Parameter Name="MemberID" Type="Int32" />
                 </SelectParameters>
