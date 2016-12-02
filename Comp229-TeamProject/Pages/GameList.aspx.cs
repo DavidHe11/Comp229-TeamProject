@@ -27,7 +27,7 @@ namespace Comp229_TeamProject.Pages
             gamelistsql.SelectCommand = "SELECT [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [GameName] WHERE GameName LIKE @search";
 
             /*
-            SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
             SqlCommand searchgame = new SqlCommand("SELECT GameName, NumberofUsers, DatePublished FROM Games WHERE GameName LIKE @search)", conn);
             try
             {

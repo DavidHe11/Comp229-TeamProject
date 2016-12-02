@@ -88,8 +88,6 @@ namespace Comp229_TeamProject.Pages
                     if (password != null && String.Equals(password, loginPasswordTB.Text))
                     {
                         FormsAuthentication.SetAuthCookie(username, true);
-                        //bool check = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-                        //WarningLblLogin.Text = check.ToString();
                         Response.Redirect("~/Pages/Homepage.aspx");
                     }
                 }
