@@ -24,9 +24,15 @@ namespace Comp229_TeamProject.Pages
 
             {
                 SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-                SqlCommand addUser = new SqlCommand("INSERT INTO Members(DateCreated, Username, Email, Password) VALUES (@Date, @username, @email, @pwd)", connection);
+                SqlCommand addUser = new SqlCommand("INSERT INTO GameProfile.[dbo].Members(Lname, Fname ,DateCreated, Username, Email, Password, Admin) VALUES ('@lastName', '@firstName', TO_DATE('@Date', 'YYYY-MM-DD')), '@username', '@email', '@pwd', '@admin')", connection);
 
-                addUser.Parameters.AddWithValue("@Date", DateTime.Now);
+                addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
+                addUser.Parameters["@lastName"].Value = lastNameTB.Text;
+
+                addUser.Parameters.Add("@firstName", SqlDbType.NVarChar);
+                addUser.Parameters["@firstName"].Value = firstNameTB.Text;
+
+                addUser.Parameters.AddWithValue("@Date", DateTime.Now.ToString("YYYY MM DD"));
 
                 addUser.Parameters.Add("@username", SqlDbType.NVarChar);
                 addUser.Parameters["@username"].Value = regUsernameTB.Text;
@@ -37,10 +43,14 @@ namespace Comp229_TeamProject.Pages
                 addUser.Parameters.Add("@pwd", SqlDbType.NVarChar);
                 addUser.Parameters["@pwd"].Value = regPasswordTB.Text;
 
+                addUser.Parameters.Add("@admin", SqlDbType.NChar);
+                addUser.Parameters["@admin"].Value = "n";
+
                 try
                 {
                     connection.Open();
                     addUser.BeginExecuteNonQuery();
+                    WarningLbl.Text = "User added!";
                 }
                 catch (Exception exception)
                 {

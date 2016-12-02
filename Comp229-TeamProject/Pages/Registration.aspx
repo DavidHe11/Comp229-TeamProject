@@ -6,6 +6,10 @@
     <div class="col-md-6 divBody heightRegistration" id="registerDiv">
         <h2>Register for an account</h2>
         <table class="tableFillout">
+        <tr><td>First Name:</td><td> <asp:TextBox runat="server" ID="firstNameTB"></asp:TextBox>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="firstNameTB" Display="Dynamic" ErrorMessage="First name is Required."></asp:RequiredFieldValidator></td></tr>
+        <tr><td>Last Name:</td><td> <asp:TextBox runat="server" ID="lastNameTB"></asp:TextBox>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="lastNameTB" Display="Dynamic" ErrorMessage="Last name is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Username:</td><td> <asp:TextBox runat="server" ID="regUsernameTB"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="regUsernameTB" Display="Dynamic" ErrorMessage="Username is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Email:</td><td> <asp:TextBox runat="server" ID="EmailTB"></asp:TextBox>

@@ -13,6 +13,24 @@ namespace Comp229_TeamProject.Pages {
     public partial class Registration {
         
         /// <summary>
+        /// firstNameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox firstNameTB;
+        
+        /// <summary>
+        /// lastNameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lastNameTB;
+        
+        /// <summary>
         /// regUsernameTB control.
         /// </summary>
         /// <remarks>
