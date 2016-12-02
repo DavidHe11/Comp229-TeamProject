@@ -13,6 +13,7 @@ CREATE TABLE GameProfile.[dbo].[Members](
 	[Username] [varchar](50) NOT NULL,
 	[Email] [nvarchar](15) NOT NULL,
 	[Password] [nvarchar](20) NOT NULL,
+	[Admin] [CHAR](1) default 'n'NOT NULL
  CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED 
 (
 	[MemberID] ASC
@@ -74,8 +75,8 @@ INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished)
 VALUES ('Persona 3', 'This is a persona 3 description', '1994-10-10')
 
 --Members
-INSERT INTO GameProfile.[dbo].Members(Lname,FName,DateCreated,Username,Email, Password)
-VALUES ('Robert','Siemens',GETDATE(),'Ricter','fake@gmail.com', '123');
+INSERT INTO GameProfile.[dbo].Members(Lname,FName,DateCreated,Username,Email, Password, Admin)
+VALUES ('Robert','Siemens',GETDATE(),'Ricter','fake@gmail.com', '123', 'y');
 
 --Gameline
 INSERT INTO GameProfile.[dbo].GameLine(GameID, MemberID)

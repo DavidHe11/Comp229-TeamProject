@@ -23,6 +23,7 @@ namespace Comp229_TeamProject.Pages
 
         protected void srchbtn_Click(object sender, EventArgs e)
         {
+            /* This method searches for a term that a user inputs into a textbox.*/
             gamelistsql.SelectCommand = "SELECT [GameName], [NumberOfUsers], [DatePublished] FROM [Games] ORDER BY [GameName] WHERE GameName LIKE @search";
 
             /*
@@ -54,11 +55,6 @@ namespace Comp229_TeamProject.Pages
                 Response.Redirect(Request.RawUrl);
             }
         */
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

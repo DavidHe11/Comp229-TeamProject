@@ -13,6 +13,24 @@ namespace Comp229_TeamProject.Pages {
     public partial class Registration {
         
         /// <summary>
+        /// firstNameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox firstNameTB;
+        
+        /// <summary>
+        /// lastNameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lastNameTB;
+        
+        /// <summary>
         /// regUsernameTB control.
         /// </summary>
         /// <remarks>
@@ -49,13 +67,13 @@ namespace Comp229_TeamProject.Pages {
         protected global::System.Web.UI.WebControls.TextBox confirmPasswordTB;
         
         /// <summary>
-        /// CreateAccount control.
+        /// WarningLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateAccount;
+        protected global::System.Web.UI.WebControls.Label WarningLbl;
         
         /// <summary>
         /// loginUsernameTB control.
@@ -76,12 +94,12 @@ namespace Comp229_TeamProject.Pages {
         protected global::System.Web.UI.WebControls.TextBox loginPasswordTB;
         
         /// <summary>
-        /// Login control.
+        /// WarningLblLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login;
+        protected global::System.Web.UI.WebControls.Label WarningLblLogin;
     }
 }

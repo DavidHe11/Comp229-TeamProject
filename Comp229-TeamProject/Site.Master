@@ -11,7 +11,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link rel="stylesheet" type="text/css" href="~/CSSPages/PersonalCSS.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/PersonalCSS.css">
     <link href="Assets/Icon.ico" rel="shortcut icon" type="image/x-icon" />
     
 </head>
@@ -65,7 +65,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li> <a runat="server" href="~/Pages/Profile.aspx"> My Profile</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Pages/HomePage.aspx" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Pages/Registration.aspx" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>
