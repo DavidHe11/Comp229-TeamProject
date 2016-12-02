@@ -10,8 +10,8 @@ CREATE TABLE GameProfile.[dbo].[Members](
 	[LName] [varchar](50) NOT NULL,
 	[FName] [varchar](50) NOT NULL,
 	[DateCreated] [date] NOT NULL,
-	[Username] [varchar](50) NOT NULL,
-	[Email] [nvarchar](15) NOT NULL,
+	[Username] [varchar](50) NOT NULL UNIQUE,
+	[Email] [nvarchar](30) NOT NULL UNIQUE, 
 	[Password] [nvarchar](20) NOT NULL,
 	[Admin] [CHAR](1) default 'n'NOT NULL
  CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED 
@@ -29,6 +29,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE GameProfile.[dbo].[GameLine](
 	[GameLineID] [int] IDENTITY (10, 1) NOT NULL,
+	[GameName] [varchar](50) NOT NULL,
 	[MemberID] [int] NOT NULL,
 	[GameID] [int] NOT NULL,
  CONSTRAINT [PK_GameLine] PRIMARY KEY CLUSTERED 
@@ -79,5 +80,5 @@ INSERT INTO GameProfile.[dbo].Members(Lname,FName,DateCreated,Username,Email, Pa
 VALUES ('Robert','Siemens',GETDATE(),'Ricter','fake@gmail.com', '123', 'y');
 
 --Gameline
-INSERT INTO GameProfile.[dbo].GameLine(GameID, MemberID)
-VALUES (10, 100 )
+INSERT INTO GameProfile.[dbo].GameLine(GameID,GameName, MemberID)
+VALUES (10,'Persona3', 100 )
