@@ -12,6 +12,19 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*Using this because we did not get forms to work, it sends the person to the registration/login page if they are not logged in
+            bool checkLoggedIn = (HttpContext.Current.User != null) && (HttpContext.Current.User.Identity.IsAuthenticated);
+
+
+            if (!checkLoggedIn)
+            {
+                Response.Redirect("~/Pages/Registration.aspx");
+            }*/
+
+
+
+
+
             /*Loads the page with the specific member information*/
 
 

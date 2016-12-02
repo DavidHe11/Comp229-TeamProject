@@ -12,13 +12,14 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool checkAnonymous = (HttpContext.Current.User != null) && (HttpContext.Current.User.Identity.IsAuthenticated);
+            /*Using this because we did not get forms to work, it sends the person to the registration/login page if they are not logged in
+            bool checkLoggedIn = (HttpContext.Current.User != null) && (HttpContext.Current.User.Identity.IsAuthenticated);
 
 
-            if (checkAnonymous)
+            if (!checkLoggedIn)
             {
-
-            }
+                Response.Redirect("~/Pages/Registration.aspx");
+            }*/
 
 
             /*Loads the page with the specific game information*/
@@ -26,12 +27,12 @@ namespace Comp229_TeamProject.Pages
             gameNameLbl.Text = gamename;
 
           
-            SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
 
             SqlCommand getdesc = new SqlCommand("SELECT GameDesc FROM dbo.Games WHERE GameName= @game", conn);
             SqlCommand getplayers = new SqlCommand("SELECT NumberOfUsers FROM dbo.Games WHERE GameName= @game", conn);
             SqlCommand getrating = new SqlCommand("SELECT Rating FROM dbo.Games WHERE GameName= @game", conn);
-
+            
 
             try
             {
