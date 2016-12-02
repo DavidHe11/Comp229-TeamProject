@@ -67,14 +67,14 @@ namespace Comp229_TeamProject.Pages
         {
             /*Check user credentical and login*/
             SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-            SqlCommand checkUser = new SqlCommand("Select Username FROM Members WHERE Username = @username");
-            SqlCommand checkPassword = new SqlCommand("Select Password FROM Members WHERE Username = @username");
+            SqlCommand checkUser = new SqlCommand("Select Username FROM GameProfile.[dbo].Members WHERE Username = @username", connection);
+            SqlCommand checkPassword = new SqlCommand("Select Password FROM GameProfile.[dbo].Members WHERE Username = @username", connection);
 
             checkUser.Parameters.Add("@username", SqlDbType.NVarChar);
-            checkUser.Parameters["@name"].Value = loginUsernameTB.Text;
+            checkUser.Parameters["@username"].Value = loginUsernameTB.Text;
 
             checkPassword.Parameters.Add("@username", SqlDbType.NVarChar);
-            checkPassword.Parameters["@name"].Value = loginUsernameTB.Text;
+            checkPassword.Parameters["@username"].Value = loginUsernameTB.Text;
 
             try
             {
@@ -87,7 +87,10 @@ namespace Comp229_TeamProject.Pages
 
                     if (password != null && String.Equals(password, loginPasswordTB.Text))
                     {
-                        FormsAuthentication.RedirectFromLoginPage(username, false);
+                        FormsAuthentication.SetAuthCookie(username, true);
+                        //bool check = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+                        //WarningLblLogin.Text = check.ToString();
+                        Response.Redirect("~/Pages/Homepage.aspx");
                     }
                 }
                 else
