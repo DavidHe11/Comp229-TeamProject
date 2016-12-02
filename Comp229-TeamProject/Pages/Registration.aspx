@@ -16,7 +16,8 @@
             <asp:CompareValidator runat="server" ControlToValidate="confirmPasswordTB" ControlToCompare="regPasswordTB" Display="Dynamic" ErrorMessage="Passwords do not match"></asp:CompareValidator>
             </table>
         <br />
-        <asp:Button CssClass="btn" runat="server" Text="Create Account"/><%--Onclick="Register_Click"--%>
+        <asp:Button CssClass="btn" runat="server" Text="Create Account" Onclick="Register_Click" />
+        <asp:Label runat="server" ID="WarningLbl"></asp:Label>
         
     </div>
     <div class="col-md-6 divBody heightRegistration" id="loginDiv">
@@ -26,6 +27,7 @@
         <tr><td>Password:</td><td> <asp:TextBox runat="server" ID="loginPasswordTB" TextMode="Password"></asp:TextBox></td></tr>
             </table>
         <br />
-        <asp:Button CssClass="btn" runat="server" Text="Login"/><%--Onclick="Login_Click"--%>
+        <asp:Label runat="server" ID="WarningLblLogin"></asp:Label>
+        <asp:Button CssClass="btn" runat="server" Text="Login" Onclick="Login_Click" />
     </div>
     </asp:Content>
