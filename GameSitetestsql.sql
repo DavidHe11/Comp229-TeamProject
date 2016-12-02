@@ -29,7 +29,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE GameProfile.[dbo].[GameLine](
 	[GameLineID] [int] IDENTITY (10, 1) NOT NULL,
-	[GameName] [varchar](50) NOT NULL,
+	[GameName] [varchar](50) NOT NULL UNIQUE,
 	[MemberID] [int] NOT NULL,
 	[GameID] [int] NOT NULL,
  CONSTRAINT [PK_GameLine] PRIMARY KEY CLUSTERED 
