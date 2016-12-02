@@ -12,6 +12,8 @@
         <div class="divBody halfSize left">
             Email:<asp:Label runat="server" ID="EmailID"></asp:Label>
         </div>
+
+
         <div class="divBody halfSize right">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="gamesowned" Width="400px" AllowPaging="True">
                     <Columns>
@@ -24,6 +26,8 @@
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
+
+        <%--make this visible only authorized user --%>
         <div ID="editbtndiv" runat="server" class ="divBody" visible="true">
             <p> <asp:Button ID="editbtn" runat="server" Text="Edit Profile" OnClick="editbtn_Click" /></p>
             </div>
