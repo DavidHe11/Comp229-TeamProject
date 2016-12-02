@@ -24,8 +24,9 @@
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
-        <div >
+        <div ID="editbtndiv" runat="server" class ="divBody" visible="true">
             <p> <asp:Button ID="editbtn" runat="server" Text="Edit Profile" OnClick="editbtn_Click" /></p>
+            </div>
             <div ID="editdiv" runat="server" class ="divBody" visible="false">
                 <p>First Name:<asp:TextBox ID="Fnamebx" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="fnamereq" runat="server" Display="Dynamic" ControlToValidate="fnamebx" ErrorMessage="First name required"></asp:RequiredFieldValidator>
@@ -39,7 +40,7 @@
                 </p>
                 <p> <asp:Button ID="submitbtn" runat="server" Text="Submit" OnClick="submitbtn_Click" /></p>
             </div>
-        </div>
+        
 
 
     </div>

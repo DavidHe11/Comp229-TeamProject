@@ -58,6 +58,15 @@ namespace Comp229_TeamProject.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource gamesowned;
         
         /// <summary>
+        /// editbtndiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editbtndiv;
+        
+        /// <summary>
         /// editbtn control.
         /// </summary>
         /// <remarks>

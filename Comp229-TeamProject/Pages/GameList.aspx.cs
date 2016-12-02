@@ -91,8 +91,8 @@ namespace Comp229_TeamProject.Pages
                         addgame.Parameters.AddWithValue("@date", Date);
                         conn.Open();
                         addgame.ExecuteNonQuery();
-
-                    }
+                Response.Redirect(Request.RawUrl);
+            }
 
                     finally
                     {
@@ -104,6 +104,13 @@ namespace Comp229_TeamProject.Pages
             //    }
            // }
 
+        }
+
+        protected void showdivbtn_Click(object sender, EventArgs e)
+        {
+            //turn on div to let any user add a game
+            editdiv.Visible = true;
+            editbtndiv.Visible = false;
         }
     }
 }

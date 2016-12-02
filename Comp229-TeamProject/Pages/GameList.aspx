@@ -21,11 +21,15 @@
                 </asp:SqlDataSource>
         </p>
   </div>
-    <div >
+    
+        <div ID="editbtndiv" runat="server" class ="divBody" visible="true">
+            <asp:Button ID="showdivbtn" runat="server" Text="Add a Game" OnClick="showdivbtn_Click" />
+        </div>
+        <div ID="editdiv" runat="server" class ="divBody" visible="false">
         <p>Add Game</p>
         <p>Game Name:<asp:TextBox ID="namebx" runat="server"></asp:TextBox>
         </p>
-        <p>Game Description:<asp:TextBox ID="descbx" runat="server" Width="194px"></asp:TextBox>
+        <p>Game Description:<asp:TextBox ID="descbx" runat="server" Width="288px" Height="93px" TextMode="MultiLine"></asp:TextBox>
         </p>
         <p>Game Published:<asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
@@ -41,5 +45,6 @@
         <p>
             <asp:Button ID="addbtn" runat="server" OnClick="addbtn_Click" Text="Add Game" />
         </p>
-    </div>
+            </div>
+    
     </asp:Content>

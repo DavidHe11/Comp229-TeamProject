@@ -62,8 +62,7 @@ namespace Comp229_TeamProject.Pages
 
         protected void editbtn_Click(object sender, EventArgs e)
         {
-            //turn on div to let auenticated user to change some info
-            editdiv.Visible = true;
+           
         }
 
         protected void submitbtn_Click(object sender, EventArgs e)
