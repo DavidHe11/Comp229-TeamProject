@@ -25,7 +25,7 @@
         <p>Add Game</p>
         <p>Game Name:<asp:TextBox ID="namebx" runat="server"></asp:TextBox>
         </p>
-        <p>Game Description:<asp:TextBox ID="descbx" runat="server"></asp:TextBox>
+        <p>Game Description:<asp:TextBox ID="descbx" runat="server" Width="194px"></asp:TextBox>
         </p>
         <p>Game Published:<asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />

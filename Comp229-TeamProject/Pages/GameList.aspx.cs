@@ -65,14 +65,14 @@ namespace Comp229_TeamProject.Pages
             String Date = null;
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
             SqlCommand addgame = new SqlCommand("INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished) VALUES(@name, @desc, @date)", conn);
-            if (String.IsNullOrEmpty(namebx.Text))
-            {
+        //    if (String.IsNullOrEmpty(namebx.Text))
+        //    {
                
-            }
-            else
-            {
-                if(String.IsNullOrEmpty(descbx.Text))
-                {
+         //   }
+          //  else
+         //   {
+               // if(String.IsNullOrEmpty(descbx.Text))
+               // {
                     Name = namebx.Text;
                     Description = descbx.Text;
                     Date = Convert.ToString(Calendar1.SelectedDate);
@@ -94,8 +94,8 @@ namespace Comp229_TeamProject.Pages
 
 
                     }
-                }
-            }
+            //    }
+           // }
 
         }
     }
