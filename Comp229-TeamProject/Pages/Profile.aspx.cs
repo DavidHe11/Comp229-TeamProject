@@ -13,6 +13,8 @@ namespace Comp229_TeamProject.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             /*Loads the page with the specific member information*/
+
+
             string username = Request.QueryString["UserName"];
             int memberid = 0;
             SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
