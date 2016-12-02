@@ -7,15 +7,15 @@
         <h2>Register for an account</h2>
         <table class="tableFillout">
         <tr><td>First Name:</td><td> <asp:TextBox runat="server" ID="firstNameTB"></asp:TextBox>
-        <asp:RequiredFieldValidator runat="server" ControlToValidate="firstNameTB" Display="Dynamic" ErrorMessage="First name is Required."></asp:RequiredFieldValidator></td></tr>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="firstNameTB" Display="Dynamic" ValidationGroup="registration" ErrorMessage="First name is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Last Name:</td><td> <asp:TextBox runat="server" ID="lastNameTB"></asp:TextBox>
-        <asp:RequiredFieldValidator runat="server" ControlToValidate="lastNameTB" Display="Dynamic" ErrorMessage="Last name is Required."></asp:RequiredFieldValidator></td></tr>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="lastNameTB" Display="Dynamic" ValidationGroup="registration" ErrorMessage="Last name is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Username:</td><td> <asp:TextBox runat="server" ID="regUsernameTB"></asp:TextBox>
-        <asp:RequiredFieldValidator runat="server" ControlToValidate="regUsernameTB" Display="Dynamic" ErrorMessage="Username is Required."></asp:RequiredFieldValidator></td></tr>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="regUsernameTB" Display="Dynamic" ValidationGroup="registration" ErrorMessage="Username is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Email:</td><td> <asp:TextBox runat="server" ID="EmailTB"></asp:TextBox>
-        <asp:RequiredFieldValidator runat="server" ControlToValidate="EmailTB" Display="Dynamic" ErrorMessage="Email is Required."></asp:RequiredFieldValidator></td></tr>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="EmailTB" Display="Dynamic" ValidationGroup="registration" ErrorMessage="Email is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Password:</td><td> <asp:TextBox runat="server" ID="regPasswordTB" TextMode="Password"></asp:TextBox>
-        <asp:RequiredFieldValidator runat="server" ControlToValidate="regPasswordTB" Display="Dynamic" ErrorMessage="Password is Required"></asp:RequiredFieldValidator></td></tr>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="regPasswordTB" Display="Dynamic" ValidationGroup="registration" ErrorMessage="Password is Required."></asp:RequiredFieldValidator></td></tr>
         <tr><td>Confirm Password:</td><td><asp:TextBox runat="server" ID="confirmPasswordTB" TextMode="Password"></asp:TextBox></td></tr>
             <asp:CompareValidator runat="server" ControlToValidate="confirmPasswordTB" ControlToCompare="regPasswordTB" Display="Dynamic" ErrorMessage="Passwords do not match"></asp:CompareValidator>
             </table>
@@ -27,11 +27,16 @@
     <div class="col-md-6 divBody heightRegistration" id="loginDiv">
         <h2>Login</h2>
         <table class="tableFillout">
-        <tr><td>Username:</td><td> <asp:TextBox runat="server" ID="loginUsernameTB"></asp:TextBox></td></tr>
-        <tr><td>Password:</td><td> <asp:TextBox runat="server" ID="loginPasswordTB" TextMode="Password"></asp:TextBox></td></tr>
+        <tr><td>Username:</td><td> <asp:TextBox runat="server" ID="loginUsernameTB"></asp:TextBox>
+            <asp:RequiredFieldValidator runat="server" ControlToValidate="loginUsernameTB" Display="Dynamic" ValidationGroup="login" ErrorMessage="Username is Required."></asp:RequiredFieldValidator>
+                              </td></tr>
+
+        <tr><td>Password:</td><td> <asp:TextBox runat="server" ID="loginPasswordTB" TextMode="Password"></asp:TextBox>
+            <asp:RequiredFieldValidator runat="server" ControlToValidate="loginPasswordTB" Display="Dynamic" ValidationGroup="login" ErrorMessage="Password is Required."></asp:RequiredFieldValidator>
+                              </td></tr>
             </table>
         <br />
-        <asp:Label runat="server" ID="WarningLblLogin"></asp:Label>
         <asp:Button CssClass="btn" runat="server" Text="Login" Onclick="Login_Click" />
+        <asp:Label runat="server" ID="WarningLblLogin"></asp:Label>
     </div>
     </asp:Content>
