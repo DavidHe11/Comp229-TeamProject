@@ -16,7 +16,7 @@ namespace Comp229_TeamProject.Pages
 
 
             string username = Request.QueryString["UserName"];
-            int memberid = 0;
+            string memberid = null;
             SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
             
             SqlCommand getemail = new SqlCommand("SELECT Email FROM dbo.Members WHERE UserName= @user", conn);
@@ -30,7 +30,8 @@ namespace Comp229_TeamProject.Pages
                 getid.Parameters.AddWithValue("@user", username);
                 conn.Open();
                 EmailID.Text = Convert.ToString(getemail.ExecuteScalar());
-                memberid = Convert.ToInt32(getid.ExecuteScalar());
+                memberid = Convert.ToString(getid.ExecuteScalar());
+                gamesowned.SelectParameters["MemberID"].DefaultValue = memberid;
             }
 
             finally

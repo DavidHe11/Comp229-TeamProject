@@ -21,7 +21,7 @@
                 </asp:SqlDataSource>
         </p>
   </div>
-    <div >
+    <div hidden>
         <p>Add Game</p>
         <p>Game Name:<asp:TextBox ID="namebx" runat="server"></asp:TextBox>
         </p>

@@ -11,7 +11,7 @@
         <p> Welcome to Gardyloo! A special place where you can keep track of the games you have played for easy reference.</p>
             <p> 
                 <asp:TextBox ID="TextBox1" runat="server" Width="400px"></asp:TextBox>
-                <asp:Button ID="Button1" runat="server" Text="Button" />
+                <asp:Button ID="Button1" runat="server" Text="Search Games" />
             </p>
     
         <div class="row small">

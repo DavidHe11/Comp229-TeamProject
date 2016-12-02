@@ -64,7 +64,7 @@ namespace Comp229_TeamProject.Pages
             String Description = null;
             String Date = null;
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-            SqlCommand addgame = new SqlCommand("INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished) VALUES(@name, @desc, @date)", conn);
+            SqlCommand addgame = new SqlCommand("INSERT INTO Games(GameName, GameDesc, DatePublished) VALUES(@name, @desc, @date)", conn);
         //    if (String.IsNullOrEmpty(namebx.Text))
         //    {
                
