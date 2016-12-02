@@ -15,17 +15,28 @@ namespace Comp229_TeamProject
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
-
+        public string username;
         protected void Page_Init(object sender, EventArgs e)
         {
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
+            if (Request.Cookies["loginCookie"] != null)
+            {
+               
+                if (Request.Cookies["loginCookie"]["username"] != null)
+
+                {
+                    username = Request.Cookies["loginCookie"]["username"];
+                }
+            }
             Guid requestCookieGuidValue;
             if (requestCookie != null && Guid.TryParse(requestCookie.Value, out requestCookieGuidValue))
             {
                 // Use the Anti-XSRF token from the cookie
                 _antiXsrfTokenValue = requestCookie.Value;
                 Page.ViewStateUserKey = _antiXsrfTokenValue;
+
+
             }
             else
             {
@@ -47,7 +58,7 @@ namespace Comp229_TeamProject
 
             Page.PreLoad += master_Page_PreLoad;
         }
-
+     
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
             if (!IsPostBack)

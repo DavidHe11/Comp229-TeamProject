@@ -14,7 +14,7 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Register_Click(object sender, EventArgs e)
@@ -24,7 +24,6 @@ namespace Comp229_TeamProject.Pages
 
             {
                 SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-                //SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
                 SqlCommand addUser = new SqlCommand("INSERT INTO Members(Lname,FName,DateCreated,Username,Email, Password) VALUES(@lastName ,@firstName,GETDATE(),@username,@email, @pwd)", conn);
 
                 String lastName = lastNameTB.Text;
@@ -33,27 +32,6 @@ namespace Comp229_TeamProject.Pages
                 String email = EmailTB.Text;
                 String pass = regPasswordTB.Text;
 
-
-                /*
-                addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
-
-                addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
-                addUser.Parameters["@lastName"].Value = lastNameTB.Text;
-
-                addUser.Parameters.Add("@firstName", SqlDbType.NVarChar);
-                addUser.Parameters["@firstName"].Value = firstNameTB.Text;
-
-
-
-                addUser.Parameters.Add("@username", SqlDbType.NVarChar);
-                addUser.Parameters["@username"].Value = regUsernameTB.Text;
-
-                addUser.Parameters.Add("@email", SqlDbType.NVarChar);
-                addUser.Parameters["@email"].Value = EmailTB.Text;
-
-                addUser.Parameters.Add("@pwd", SqlDbType.NVarChar);
-                addUser.Parameters["@pwd"].Value = regPasswordTB.Text;
-                */
                 try
                 {
                     addUser.Parameters.AddWithValue("@lastName", lastName);
@@ -81,6 +59,7 @@ namespace Comp229_TeamProject.Pages
 
            }
         }
+
         protected void Login_Click(object sender, EventArgs e)
         {
             /*Check user credentical and login*/
@@ -107,6 +86,7 @@ namespace Comp229_TeamProject.Pages
                     {
                         FormsAuthentication.SetAuthCookie(username, true);
                         Response.Redirect("~/Pages/Homepage.aspx");
+                        
                     }
                 }
                 else

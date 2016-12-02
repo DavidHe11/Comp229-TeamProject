@@ -12,27 +12,17 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*Using this because we did not get forms to work, it sends the person to the registration/login page if they are not logged in
-            bool checkLoggedIn = (HttpContext.Current.User != null) && (HttpContext.Current.User.Identity.IsAuthenticated);
 
-
-            if (!checkLoggedIn)
-            {
-                Response.Redirect("~/Pages/Registration.aspx");
-            }*/
-
-
-            /*Loads the page with the specific game information*/
             string gamename = Request.QueryString["GameName"];
             gameNameLbl.Text = gamename;
 
-          
+
             SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
 
             SqlCommand getdesc = new SqlCommand("SELECT GameDesc FROM dbo.Games WHERE GameName= @game", conn);
             SqlCommand getplayers = new SqlCommand("SELECT NumberOfUsers FROM dbo.Games WHERE GameName= @game", conn);
             SqlCommand getrating = new SqlCommand("SELECT Rating FROM dbo.Games WHERE GameName= @game", conn);
-            
+
 
             try
             {
@@ -44,7 +34,7 @@ namespace Comp229_TeamProject.Pages
                 conn.Open();
                 descLbl.Text = Convert.ToString(getdesc.ExecuteScalar());
                 numberOfPlayersLbl.Text = Convert.ToString(getplayers.ExecuteScalar());
-  
+
             }
 
             finally
@@ -58,64 +48,96 @@ namespace Comp229_TeamProject.Pages
         protected void addGameToCollectionBtn_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-            string Gamename = null;
+            string Gamename = Request.QueryString["GameName"];
+
             int GameID = 0;
             int MemberID = 0;
-            SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,GameName,MemberID) VALUES(@gameid,@gamename @User); ", conn);
-            SqlCommand removegame = new SqlCommand("DELETE FROM dbo.GameLine WHERE MemberID = @user AND GameID = @gamename; ", conn);
+            string username = null;
+            Boolean itshere = false;
+            //add the cookie for username here
+            username = Request.Cookies["loginCookie"]["username"];
+            SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,GameName,MemberID) VALUES(@gameid,@gamename, @User); ", conn);
+
             SqlCommand gameadduser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers + 1 WHERE GameID = @GameID ", conn);
             SqlCommand gameremoveuser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers - 1 WHERE GameID = @GameID ", conn);
 
-            //  if (User is logged in)
-            //      { 
-            //  if (User does not have it)
-            //      { 
+            SqlCommand getmemberid = new SqlCommand("SELECT MemberID FROM Members WHERE Username = @username");
+            SqlCommand getgameid = new SqlCommand("SELECT MemberID FROM Games WHERE GameName = @Gamename");
+
+            SqlCommand isthere = new SqlCommand("SELECT * FROM GameLine WHERE MemberID = @member AND GameName = @gamename)");
+            SqlCommand removegame = new SqlCommand("DELETE FROM dbo.GameLine WHERE MemberID = @user AND GameName = @gamename; ", conn);
 
             try
             {
-                //add the game to their list and increase the game's number of playing
-                addgame.Parameters.AddWithValue("@GameID", GameID);
-                addgame.Parameters.AddWithValue("@gamename", Gamename);
-                addgame.Parameters.AddWithValue("@user", MemberID);
-
-
-                gameadduser.Parameters.AddWithValue("GameID", GameID);
+                getmemberid.Parameters.AddWithValue("@username", username);
+                getgameid.Parameters.AddWithValue("@GameName", Gamename);
                 conn.Open();
-                addgame.ExecuteNonQuery();
-                gameadduser.ExecuteNonQuery();
+                GameID = Convert.ToInt32(getgameid.ExecuteScalar().ToString());
+                MemberID = Convert.ToInt32(getmemberid.ExecuteScalar().ToString());
+                isthere.Parameters.AddWithValue("@member", MemberID);
+                isthere.Parameters.AddWithValue("@gamename", Gamename);
+                if ((int)isthere.ExecuteScalar() == 0)
+                {
+                    itshere = false;
+                }
+                else
+                {
+                    itshere = true;
+                }
+            
             }
-
             finally
             {
-
                 conn.Close();
-
-
             }
-            /*  if (User does not have it)
-                  { //remove the game from their list and decrease the game's number of playing
-                      try
+
+            if (itshere == false)
             {
+                try
+                {
+                    //i know this works-rob
+                    // add the game to their list and increase the game's number of playing
+                    addgame.Parameters.AddWithValue("@GameID", GameID);
+                    addgame.Parameters.AddWithValue("@gamename", Gamename);
+                    addgame.Parameters.AddWithValue("@User", MemberID);
 
-                removegame.Parameters.AddWithValue("@gamename", Gamename);
-                removegame.Parameters.AddWithValue("@user", MemberID);
-                gameremoveuser.Parameters.AddWithValue("GameID", GameID);
-                conn.Open();
-                gameremoveuser.ExecuteNonQuery();
-                removegame.ExecuteNonQuery();
+                    gameadduser.Parameters.AddWithValue("GameID", GameID);
+                    conn.Open();
+                    addgame.ExecuteNonQuery();
+                    gameadduser.ExecuteNonQuery();
+                }
+
+                finally
+                {
+                    conn.Close();
+                }
             }
-
-            finally
+            else
             {
-
-                conn.Close();
-
+                //i know this works-rob
+                //remove the game from their list and decrease the game's number of playing
+                try
+                {
+                    removegame.Parameters.AddWithValue("@gamename", Gamename);
+                    removegame.Parameters.AddWithValue("@user", MemberID);
+                    gameremoveuser.Parameters.AddWithValue("GameID", GameID);
+                    conn.Open();
+                    gameremoveuser.ExecuteNonQuery();
+                    removegame.ExecuteNonQuery();
+                }
+                finally
+                {
+                    conn.Close();
+                }
 
             }
-
-             }
-             }
-             */
         }
     }
 }
+    
+
+            
+        
+    
+
+    
