@@ -6,8 +6,7 @@
         <asp:Image runat="server" ID="profileImage"/>
         <asp:Label runat="server" ID="profileName"></asp:Label>
         </div>
-        <%-- This nav may be unnessessary--%>
-        <nav class="nav-default"></nav>
+        
             
         <div class="divBody halfSize left">
             Email:<asp:Label runat="server" ID="EmailID"></asp:Label>

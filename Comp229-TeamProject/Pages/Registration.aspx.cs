@@ -66,6 +66,10 @@ namespace Comp229_TeamProject.Pages
                     addUser.ExecuteNonQuery();
                     WarningLbl.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 }
+                /*  catch (SqlException ex)
+                  {
+
+                 }*/
                 catch (Exception exception)
                 {
                     WarningLbl.Text = exception.Message.ToString();

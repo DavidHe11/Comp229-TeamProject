@@ -66,7 +66,7 @@ namespace Comp229_TeamProject.Pages
 
         protected void addbtn_Click(object sender, EventArgs e)
         {
-            //add a game if user is an admin
+            //add a game anyone can add
             String Name = null;
             String Description = null;
             String Date = null;

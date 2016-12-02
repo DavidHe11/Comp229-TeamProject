@@ -58,8 +58,10 @@ namespace Comp229_TeamProject.Pages
         protected void addGameToCollectionBtn_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-            string placeholder = null;
-            SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,MemberID) VALUES(@gamename, @User); ", conn);
+            string Gamename = null;
+            int GameID = 0;
+            int MemberID = 0;
+            SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,GameName,MemberID) VALUES(@gameid,@gamename @User); ", conn);
             SqlCommand removegame = new SqlCommand("DELETE FROM dbo.GameLine WHERE MemberID = @user AND GameID = @gamename; ", conn);
             SqlCommand gameadduser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers + 1 WHERE GameID = @GameID ", conn);
             SqlCommand gameremoveuser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers - 1 WHERE GameID = @GameID ", conn);
@@ -71,10 +73,13 @@ namespace Comp229_TeamProject.Pages
 
             try
             {
+                //add the game to their list and increase the game's number of playing
+                addgame.Parameters.AddWithValue("@GameID", GameID);
+                addgame.Parameters.AddWithValue("@gamename", Gamename);
+                addgame.Parameters.AddWithValue("@user", MemberID);
 
-                addgame.Parameters.AddWithValue("@gamename", placeholder);
-                addgame.Parameters.AddWithValue("@user", placeholder);
-                gameadduser.Parameters.AddWithValue("GameID", placeholder);
+
+                gameadduser.Parameters.AddWithValue("GameID", GameID);
                 conn.Open();
                 addgame.ExecuteNonQuery();
                 gameadduser.ExecuteNonQuery();
@@ -88,13 +93,13 @@ namespace Comp229_TeamProject.Pages
 
             }
             /*  if (User does not have it)
-                  { 
+                  { //remove the game from their list and decrease the game's number of playing
                       try
             {
 
-                removegame.Parameters.AddWithValue("@gamename", placeholder);
-                removegame.Parameters.AddWithValue("@user", placeholder);
-                gameremoveuser.Parameters.AddWithValue("GameID", placeholder);
+                removegame.Parameters.AddWithValue("@gamename", Gamename);
+                removegame.Parameters.AddWithValue("@user", MemberID);
+                gameremoveuser.Parameters.AddWithValue("GameID", GameID);
                 conn.Open();
                 gameremoveuser.ExecuteNonQuery();
                 removegame.ExecuteNonQuery();
