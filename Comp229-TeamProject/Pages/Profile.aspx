@@ -32,8 +32,8 @@
             </asp:SqlDataSource>
         </div>
         <div >
-            <p> <asp:Button ID="editbtn" runat="server" Text="Edit Profile" /></p>
-            <div class =" divBody">
+            <p> <asp:Button ID="editbtn" runat="server" Text="Edit Profile" OnClick="editbtn_Click" /></p>
+            <div ID="editdiv" runat="server" class ="divBody" visible="false">
                 <p>First Name:<asp:TextBox ID="Fnamebx" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="fnamereq" runat="server" Display="Dynamic" ControlToValidate="fnamebx" ErrorMessage="First name required"></asp:RequiredFieldValidator>
                 </p>
@@ -44,7 +44,7 @@
                    <asp:RequiredFieldValidator ID="emailreq" runat="server" Display="Dynamic" ControlToValidate="emailbx" ErrorMessage="Email Required"></asp:RequiredFieldValidator>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ControlToValidate="emailbx" ErrorMessage="Please enter a valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </p>
-                <p> <asp:Button ID="submitbtn" runat="server" Text="Submit" /></p>
+                <p> <asp:Button ID="submitbtn" runat="server" Text="Submit" OnClick="submitbtn_Click" /></p>
             </div>
         </div>
 

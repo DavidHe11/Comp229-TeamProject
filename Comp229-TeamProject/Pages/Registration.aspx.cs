@@ -23,8 +23,19 @@ namespace Comp229_TeamProject.Pages
             if (Page.IsValid)
 
             {
-                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-                SqlCommand addUser = new SqlCommand("INSERT INTO GameProfile.[dbo].Members(Lname, Fname, DateCreated, Username, Email, Password, Admin) VALUES ('@lastName', '@firstName', TO_DATE('@Date', 'YYYY-MM-DD')), '@username', '@email', '@pwd', '@admin')", connection);
+                SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+                //SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+                SqlCommand addUser = new SqlCommand("INSERT INTO Members(Lname,FName,DateCreated,Username,Email, Password) VALUES(@lastName ,@firstName,GETDATE(),@username,@email, @pwd)", conn);
+
+                String lastName = lastNameTB.Text;
+                String firstName = firstNameTB.Text;
+                String username = regUsernameTB.Text;
+                String email = EmailTB.Text;
+                String pass = regPasswordTB.Text;
+
+
+                /*
+                addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
 
                 addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
                 addUser.Parameters["@lastName"].Value = lastNameTB.Text;
@@ -32,7 +43,7 @@ namespace Comp229_TeamProject.Pages
                 addUser.Parameters.Add("@firstName", SqlDbType.NVarChar);
                 addUser.Parameters["@firstName"].Value = firstNameTB.Text;
 
-                addUser.Parameters.AddWithValue("@Date", DateTime.Now.ToString("yyyy-MM-dd"));
+
 
                 addUser.Parameters.Add("@username", SqlDbType.NVarChar);
                 addUser.Parameters["@username"].Value = regUsernameTB.Text;
@@ -42,14 +53,17 @@ namespace Comp229_TeamProject.Pages
 
                 addUser.Parameters.Add("@pwd", SqlDbType.NVarChar);
                 addUser.Parameters["@pwd"].Value = regPasswordTB.Text;
-
-                addUser.Parameters.Add("@admin", SqlDbType.NChar);
-                addUser.Parameters["@admin"].Value = "n";
-
+                */
                 try
                 {
-                    connection.Open();
-                    addUser.BeginExecuteNonQuery();
+                    addUser.Parameters.AddWithValue("@lastName", lastName);
+                    addUser.Parameters.AddWithValue("@firstName", firstName);
+                    addUser.Parameters.AddWithValue("@username", username);
+                    addUser.Parameters.AddWithValue("@email", email);
+                    addUser.Parameters.AddWithValue("@pwd", pass);
+                    
+                    conn.Open();
+                    addUser.ExecuteNonQuery();
                     WarningLbl.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 }
                 catch (Exception exception)
@@ -58,7 +72,7 @@ namespace Comp229_TeamProject.Pages
                 }
                 finally
                 {
-                    connection.Close();
+                    conn.Close();
                 }
 
            }

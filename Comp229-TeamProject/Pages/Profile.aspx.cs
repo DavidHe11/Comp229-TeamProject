@@ -60,5 +60,44 @@ namespace Comp229_TeamProject.Pages
 
         }
 
+        protected void editbtn_Click(object sender, EventArgs e)
+        {
+            //turn on div to let auenticated user to change some info
+            editdiv.Visible = true;
+        }
+
+        protected void submitbtn_Click(object sender, EventArgs e)
+        {
+            //update user
+            string user = Request.QueryString["UserName"];
+            string fname = Fnamebx.Text;
+            string lname = Lnamebx.Text;
+            string email = emailbx.Text;
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+
+            SqlCommand updateuser = new SqlCommand("UPDATE Members SET Fname = @fname, Lname = @fname,Email = @email WHERE Username = @user", conn);
+            
+            try
+            {
+
+
+                updateuser.Parameters.AddWithValue("@fname", fname);
+                updateuser.Parameters.AddWithValue("@lname", lname);
+                updateuser.Parameters.AddWithValue("@email", email);
+                updateuser.Parameters.AddWithValue("@user", user);
+
+                conn.Open();
+                updateuser.ExecuteNonQuery();
+                Response.Redirect(Request.RawUrl);
+            }
+
+            finally
+            {
+
+                conn.Close();
+
+
+            }
+        }
     }
 }
