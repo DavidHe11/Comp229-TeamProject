@@ -31,7 +31,6 @@ namespace Comp229_TeamProject.Pages
 
             SqlCommand getdesc = new SqlCommand("SELECT GameDesc FROM dbo.Games WHERE GameName= @game", conn);
             SqlCommand getplayers = new SqlCommand("SELECT NumberOfUsers FROM dbo.Games WHERE GameName= @game", conn);
-            SqlCommand getrating = new SqlCommand("SELECT Rating FROM dbo.Games WHERE GameName= @game", conn);
             
 
             try
@@ -39,7 +38,6 @@ namespace Comp229_TeamProject.Pages
 
                 getdesc.Parameters.AddWithValue("@game", gamename);
                 getplayers.Parameters.AddWithValue("@game", gamename);
-                getrating.Parameters.AddWithValue("@game", gamename);
 
                 conn.Open();
                 descLbl.Text = Convert.ToString(getdesc.ExecuteScalar());

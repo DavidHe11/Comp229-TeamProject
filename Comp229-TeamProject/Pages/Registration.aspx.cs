@@ -24,7 +24,7 @@ namespace Comp229_TeamProject.Pages
 
             {
                 SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-                SqlCommand addUser = new SqlCommand("INSERT INTO GameProfile.[dbo].Members(Lname, Fname, DateCreated, Username, Email, Password, Admin) VALUES ('@lastName', '@firstName', TO_DATE('@Date', 'YYYY-MM-DD')), '@username', '@email', '@pwd', '@admin')", connection);
+                SqlCommand addUser = new SqlCommand("INSERT INTO [dbo].[Members([LName],[FName],[DateCreated],[Username],[Email],[Password],[Admin])VALUES('@lastName', '@firstName', '@Date', '@username', '@email', '@pwd', '@admin')", connection);
 
                 addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
                 addUser.Parameters["@lastName"].Value = lastNameTB.Text;
@@ -50,7 +50,6 @@ namespace Comp229_TeamProject.Pages
                 {
                     connection.Open();
                     addUser.BeginExecuteNonQuery();
-                    WarningLbl.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 }
                 catch (Exception exception)
                 {
