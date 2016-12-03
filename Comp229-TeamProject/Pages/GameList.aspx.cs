@@ -13,14 +13,13 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*Using this because we did not get forms to work, it sends the person to the registration/login page if they are not logged in
-            bool checkLoggedIn = (HttpContext.Current.User != null) && (HttpContext.Current.User.Identity.IsAuthenticated);
+            /*Work around for not being able to get authentication to work. will send user to registration page if not authenticated. */
+            bool isAuthenticated = (HttpContext.Current.User != null) && HttpContext.Current.User.Identity.IsAuthenticated;
 
-
-            if (!checkLoggedIn)
+            if (!isAuthenticated)
             {
                 Response.Redirect("~/Pages/Registration.aspx");
-            }*/
+            }
         }
 
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

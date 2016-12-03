@@ -12,7 +12,15 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*Work around for not being able to get authentication to work. will send user to registration page if not authenticated. */
+            bool isAuthenticated = (HttpContext.Current.User != null) && HttpContext.Current.User.Identity.IsAuthenticated;
 
+            if (!isAuthenticated)
+            {
+                Response.Redirect("~/Pages/Registration.aspx");
+            }
+
+            /*When page Loads, create page dynamically with game name.*/
             string gamename = Request.QueryString["GameName"];
             gameNameLbl.Text = gamename;
 
@@ -54,8 +62,7 @@ namespace Comp229_TeamProject.Pages
             int MemberID = 0;
             string username = null;
             Boolean itshere = false;
-            //add the cookie for username here
-            username = Request.Cookies["loginCookie"]["username"];
+            username = HttpContext.Current.User.Identity.Name;
             SqlCommand addgame = new SqlCommand("INSERT INTO dbo.GameLine (GameID,GameName,MemberID) VALUES(@gameid,@gamename, @User); ", conn);
 
             SqlCommand gameadduser = new SqlCommand("UPDATE Games SET NumberofUsers = NumberofUsers + 1 WHERE GameID = @GameID ", conn);

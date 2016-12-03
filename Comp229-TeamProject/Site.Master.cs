@@ -16,6 +16,10 @@ namespace Comp229_TeamProject
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
         public string username;
+        public bool clicked = false;
+        protected string profileUsername = HttpContext.Current.User.Identity.Name;
+
+
         protected void Page_Init(object sender, EventArgs e)
         {
             // The code below helps to protect against XSRF attacks
@@ -58,6 +62,7 @@ namespace Comp229_TeamProject
 
             Page.PreLoad += master_Page_PreLoad;
         }
+
      
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
@@ -80,7 +85,12 @@ namespace Comp229_TeamProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+        }
 
+        protected void checkingProfile(object sender, EventArgs e)
+        { //Changes clicked to true, so profile can see.
+            clicked = true;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
