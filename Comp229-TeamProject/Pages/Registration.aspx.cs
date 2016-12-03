@@ -14,7 +14,7 @@ namespace Comp229_TeamProject.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Register_Click(object sender, EventArgs e)
@@ -23,45 +23,43 @@ namespace Comp229_TeamProject.Pages
             if (Page.IsValid)
 
             {
-                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-                SqlCommand addUser = new SqlCommand("INSERT INTO [dbo].[Members([LName],[FName],[DateCreated],[Username],[Email],[Password],[Admin])VALUES('@lastName', '@firstName', '@Date', '@username', '@email', '@pwd', '@admin')", connection);
+                SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
+                SqlCommand addUser = new SqlCommand("INSERT INTO Members(Lname,FName,DateCreated,Username,Email, Password) VALUES(@lastName ,@firstName,GETDATE(),@username,@email, @pwd)", conn);
 
-                addUser.Parameters.Add("@lastName", SqlDbType.NVarChar);
-                addUser.Parameters["@lastName"].Value = lastNameTB.Text;
-
-                addUser.Parameters.Add("@firstName", SqlDbType.NVarChar);
-                addUser.Parameters["@firstName"].Value = firstNameTB.Text;
-
-                addUser.Parameters.AddWithValue("@Date", DateTime.Now.ToString("yyyy-MM-dd"));
-
-                addUser.Parameters.Add("@username", SqlDbType.NVarChar);
-                addUser.Parameters["@username"].Value = regUsernameTB.Text;
-
-                addUser.Parameters.Add("@email", SqlDbType.NVarChar);
-                addUser.Parameters["@email"].Value = EmailTB.Text;
-
-                addUser.Parameters.Add("@pwd", SqlDbType.NVarChar);
-                addUser.Parameters["@pwd"].Value = regPasswordTB.Text;
-
-                addUser.Parameters.Add("@admin", SqlDbType.NChar);
-                addUser.Parameters["@admin"].Value = "n";
+                String lastName = lastNameTB.Text;
+                String firstName = firstNameTB.Text;
+                String username = regUsernameTB.Text;
+                String email = EmailTB.Text;
+                String pass = regPasswordTB.Text;
 
                 try
                 {
-                    connection.Open();
-                    addUser.BeginExecuteNonQuery();
+                    addUser.Parameters.AddWithValue("@lastName", lastName);
+                    addUser.Parameters.AddWithValue("@firstName", firstName);
+                    addUser.Parameters.AddWithValue("@username", username);
+                    addUser.Parameters.AddWithValue("@email", email);
+                    addUser.Parameters.AddWithValue("@pwd", pass);
+                    
+                    conn.Open();
+                    addUser.ExecuteNonQuery();
+                    WarningLbl.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 }
+                /*  catch (SqlException ex)
+                  {
+
+                 }*/
                 catch (Exception exception)
                 {
                     WarningLbl.Text = exception.Message.ToString();
                 }
                 finally
                 {
-                    connection.Close();
+                    conn.Close();
                 }
 
            }
         }
+
         protected void Login_Click(object sender, EventArgs e)
         {
             /*Check user credentical and login*/
@@ -88,6 +86,7 @@ namespace Comp229_TeamProject.Pages
                     {
                         FormsAuthentication.SetAuthCookie(username, true);
                         Response.Redirect("~/Pages/Homepage.aspx");
+                        
                     }
                 }
                 else

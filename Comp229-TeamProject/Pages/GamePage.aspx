@@ -12,7 +12,8 @@
         <br />
     Number Of Players Playing: <asp:Label runat="server" ID="numberOfPlayersLbl"></asp:Label>
         <br />
-        <br />
+
+   
         </div>
     </div>
     </asp:Content>

@@ -66,12 +66,12 @@ namespace Comp229_TeamProject.Pages
 
         protected void addbtn_Click(object sender, EventArgs e)
         {
-            //add a game if user is an admin
+            //add a game anyone can add
             String Name = null;
             String Description = null;
             String Date = null;
             SqlConnection conn = new SqlConnection(@"Data Source=Robert-PC\SQLEXPRESS;Initial Catalog=GameProfile;Integrated Security=True");
-            SqlCommand addgame = new SqlCommand("INSERT INTO GameProfile.[dbo].Games(GameName, GameDesc, DatePublished) VALUES(@name, @desc, @date)", conn);
+            SqlCommand addgame = new SqlCommand("INSERT INTO Games(GameName, GameDesc, DatePublished) VALUES(@name, @desc, @date)", conn);
         //    if (String.IsNullOrEmpty(namebx.Text))
         //    {
                
@@ -91,8 +91,8 @@ namespace Comp229_TeamProject.Pages
                         addgame.Parameters.AddWithValue("@date", Date);
                         conn.Open();
                         addgame.ExecuteNonQuery();
-
-                    }
+                Response.Redirect(Request.RawUrl);
+            }
 
                     finally
                     {
@@ -104,6 +104,13 @@ namespace Comp229_TeamProject.Pages
             //    }
            // }
 
+        }
+
+        protected void showdivbtn_Click(object sender, EventArgs e)
+        {
+            //turn on div to let any user add a game
+            editdiv.Visible = true;
+            editbtndiv.Visible = false;
         }
     }
 }

@@ -63,7 +63,8 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li> <a runat="server" href="~/Pages/Profile.aspx"> My Profile</a></li>
+                                <%--put cookie value where the {0} is and this will work --%>
+                                <li> <a runat="server" href="~/Pages/Profile.aspx?Username={0}"> My Profile</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Pages/Registration.aspx" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>

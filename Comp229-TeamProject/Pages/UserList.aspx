@@ -8,11 +8,12 @@
         <asp:Button ID="srchbtn" runat="server" OnClick="srchbtn_Click" Text="Search" />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="userlistsql" Width="265px" AllowPaging="True">
             <Columns>
+                <%--this is where you put the cookie variable in the {0} --%>
                 <asp:HyperLinkField DataNavigateUrlFields="Username" DataNavigateUrlFormatString="Profile.aspx?Username={0}" DataTextField="UserName" HeaderText="UserName" NavigateUrl="~/Pages/Profile.aspx" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="userlistsql" runat="server"
-                     ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" 
+                     ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString %>" 
                     SelectCommand="SELECT [Username] FROM [Members]"></asp:SqlDataSource>
     </p>
         </div>

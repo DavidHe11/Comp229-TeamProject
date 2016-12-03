@@ -118,3 +118,6 @@ This IS linked in the master page.
 .left{
     float:left;
 }
+.profedit{
+    visibility:hidden;
+}

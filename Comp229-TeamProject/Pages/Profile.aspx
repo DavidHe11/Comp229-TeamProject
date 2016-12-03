@@ -6,30 +6,45 @@
         <asp:Image runat="server" ID="profileImage"/>
         <asp:Label runat="server" ID="profileName"></asp:Label>
         </div>
-        <%-- This nav may be unnessessary--%>
-        <nav class="nav-default"></nav>
+        
             
         <div class="divBody halfSize left">
             Email:<asp:Label runat="server" ID="EmailID"></asp:Label>
         </div>
-        <div class="divBody halfSize right">
-            Games owned:
 
-            <asp:DataList ID="DataList1" runat="server" DataSourceID="gamesowned">
-                <ItemTemplate>
-       
-                    <asp:Label ID="GameNameLabel" runat="server" Text='<%# Eval("GameName") %>' />
-                    <br />
-<br />
-                </ItemTemplate>
-            </asp:DataList>
-            <asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString2 %>" SelectCommand="SELECT Games.GameName FROM Games INNER JOIN GameLine ON Games.GameID = GameLine.GameID INNER JOIN Members ON GameLine.MemberID = Members.MemberID
-WHERE (GameLine.MemberID = @memberid)">
+
+        <div class="divBody halfSize right">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="gamesowned" Width="400px" AllowPaging="True">
+                    <Columns>
+                        <asp:HyperLinkField DataNavigateUrlFields="GameName" DataNavigateUrlFormatString="GamePage.aspx?GameName={0}" DataTextField="GameName" HeaderText="Games Owned:" NavigateUrl="~/Pages/GamePage.aspx" />
+                    </Columns>
+                </asp:GridView>
+                &nbsp;<asp:SqlDataSource ID="gamesowned" runat="server" ConnectionString="<%$ ConnectionStrings:GameProfileConnectionString %>" SelectCommand="SELECT [GameName] FROM [GameLine] WHERE ([MemberID] = @MemberID)">
                 <SelectParameters>
-                    <asp:FormParameter FormField="memberid" Name="memberid" DefaultValue="10" />
+                    <asp:Parameter Name="MemberID" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
+
+        <%--make this visible only authorized user --%>
+        <div ID="editbtndiv" runat="server" class ="divBody" visible="true">
+            <p> <asp:Button ID="editbtn" runat="server" Text="Edit Profile" OnClick="editbtn_Click" /></p>
+            </div>
+            <div ID="editdiv" runat="server" class ="divBody" visible="false">
+                <p>First Name:<asp:TextBox ID="Fnamebx" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="fnamereq" runat="server" Display="Dynamic" ControlToValidate="fnamebx" ErrorMessage="First name required"></asp:RequiredFieldValidator>
+                </p>
+                <p>Last Name:<asp:TextBox ID="Lnamebx" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="lnamereq" runat="server" Display="Dynamic" ControlToValidate="lnamebx" ErrorMessage="Last Name Required"></asp:RequiredFieldValidator>
+                </p>
+               <p>Email:<asp:TextBox ID="emailbx" runat="server"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="emailreq" runat="server" Display="Dynamic" ControlToValidate="emailbx" ErrorMessage="Email Required"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ControlToValidate="emailbx" ErrorMessage="Please enter a valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </p>
+                <p> <asp:Button ID="submitbtn" runat="server" Text="Submit" OnClick="submitbtn_Click" /></p>
+            </div>
+        
+
 
     </div>
     </asp:Content>
